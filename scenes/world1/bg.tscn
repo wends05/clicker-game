@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsiuj74gppbbr"]
+
+[ext_resource type="Script" path="res://scenes/world1/bg.gd" id="1_g24at"]
+[ext_resource type="Texture2D" uid="uid://dq4aro3pmnipt" path="res://src/orig/bg/world1/sky-bg.png" id="1_wlyaa"]
+[ext_resource type="Texture2D" uid="uid://ch4fcq3aonsi5" path="res://src/orig/bg/world1/4.png" id="2_o0ihs"]
+[ext_resource type="Texture2D" uid="uid://c3dx2okq8o3a8" path="res://src/orig/bg/world1/7.png" id="3_vdlbu"]
+[ext_resource type="Texture2D" uid="uid://bxo6uov8tdrqm" path="res://src/orig/bg/world1/6.png" id="4_sd82u"]
+[ext_resource type="Texture2D" uid="uid://dbmjefx1ubxde" path="res://src/orig/bg/world1/5.png" id="5_u40jj"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_g24at")
+
+[node name="bg" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sky-bg" type="Sprite2D" parent="bg"]
+position = Vector2(576.51, 321.25)
+scale = Vector2(1.23848, 1.2307)
+texture = ExtResource("1_wlyaa")
+
+[node name="7" type="Sprite2D" parent="bg"]
+position = Vector2(579.111, 330.25)
+scale = Vector2(0.517063, 0.517063)
+texture = ExtResource("3_vdlbu")
+
+[node name="6" type="Sprite2D" parent="bg"]
+position = Vector2(584, 328)
+scale = Vector2(0.510913, 0.510913)
+texture = ExtResource("4_sd82u")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(575.556, 332.25)
+scale = Vector2(0.513889, 0.513889)
+texture = ExtResource("5_u40jj")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="7" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(832, 432)
+scale = Vector2(0.285317, 0.285318)
+texture = ExtResource("4_sd82u")
+
+[node name="foreground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="4" type="Sprite2D" parent="foreground"]
+position = Vector2(576, 320)
+scale = Vector2(0.514286, 0.514286)
+texture = ExtResource("2_o0ihs")

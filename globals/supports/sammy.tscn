@@ -1,0 +1,235 @@
+[gd_scene load_steps=18 format=3 uid="uid://kjn22vyq0s6x"]
+
+[ext_resource type="Script" path="res://globals/supports/Sammy.gd" id="1_f7i3h"]
+[ext_resource type="Texture2D" uid="uid://dxwteshqg2wc4" path="res://src/Sunny-land-files/Graphical Assets/spritesheets/player.png" id="2_fneeb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jen6f"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(0, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe4ig"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(0, 160, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwo8y"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(33, 160, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bivf3"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(0, 96, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sljsa"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(33, 96, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enlg"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(66, 96, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80h0"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(33, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln6d6"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(66, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l4fd"]
+atlas = ExtResource("2_fneeb")
+region = Rect2(99, 0, 33, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdj3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jen6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe4ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwo8y")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bivf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sljsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1enlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sljsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1enlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bivf3")
+}],
+"loop": true,
+"name": &"heal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jen6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e80h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln6d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l4fd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_a5r4g"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2g6t4"]
+resource_name = "attack"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_jg5is"]
+resource_name = "heal"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"heal"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_x6x0m"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_susdg"]
+_data = {
+"RESET": SubResource("Animation_a5r4g"),
+"attack": SubResource("Animation_2g6t4"),
+"heal": SubResource("Animation_jg5is"),
+"idle": SubResource("Animation_x6x0m")
+}
+
+[node name="Sammy" type="Sprite2D"]
+script = ExtResource("1_f7i3h")
+Name = "Sammy"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.69697, 1.69697)
+sprite_frames = SubResource("SpriteFrames_rdj3a")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_susdg")
+}
+autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="."]

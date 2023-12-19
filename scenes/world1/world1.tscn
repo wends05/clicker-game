@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://fyte2q6etwj4"]
+
+[ext_resource type="Script" path="res://scenes/world1/world1.gd" id="1_e26pq"]
+[ext_resource type="PackedScene" uid="uid://bsiuj74gppbbr" path="res://scenes/world1/bg.tscn" id="1_yw6b6"]
+[ext_resource type="PackedScene" uid="uid://t7024drenr5t" path="res://globals/player.tscn" id="2_1sjjg"]
+[ext_resource type="Script" path="res://globals/EnemyHandler.gd" id="3_h4nqf"]
+[ext_resource type="PackedScene" uid="uid://cgoldym24rogq" path="res://globals/upgrades.tscn" id="4_tu1lr"]
+[ext_resource type="Script" path="res://globals/PetHandler.gd" id="5_4s2e0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5qk4"]
+bg_color = Color(0, 0.780392, 0, 0.65098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a47xq"]
+bg_color = Color(0, 0.588235, 0.941176, 0.568627)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_0d5hn"]
+font_size = 32
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("HPBar", "EXPBar", "Level")]
+script = ExtResource("1_e26pq")
+HPBar = NodePath("HP")
+EXPBar = NodePath("EXP")
+Level = NodePath("Level")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_yw6b6")]
+
+[node name="EnemyHandler" type="Marker2D" parent="."]
+position = Vector2(704, 512)
+script = ExtResource("3_h4nqf")
+
+[node name="Timer" type="Timer" parent="EnemyHandler"]
+
+[node name="Player" parent="." instance=ExtResource("2_1sjjg")]
+position = Vector2(576, 472)
+
+[node name="PetHandler" type="Marker2D" parent="."]
+position = Vector2(544, 552)
+script = ExtResource("5_4s2e0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Upgrades" parent="CanvasLayer" instance=ExtResource("4_tu1lr")]
+
+[node name="HP" type="ProgressBar" parent="."]
+offset_left = 384.0
+offset_top = 576.0
+offset_right = 768.0
+offset_bottom = 603.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d5qk4")
+step = 0.0
+
+[node name="EXP" type="ProgressBar" parent="."]
+offset_left = 384.0
+offset_top = 608.0
+offset_right = 768.0
+offset_bottom = 624.0
+theme_override_styles/background = SubResource("StyleBoxFlat_a47xq")
+step = 0.0
+
+[node name="Level" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 568.0
+offset_right = 376.0
+offset_bottom = 632.0
+text = "1"
+label_settings = SubResource("LabelSettings_0d5hn")
+horizontal_alignment = 1
+vertical_alignment = 1
