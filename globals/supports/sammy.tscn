@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://kjn22vyq0s6x"]
 
-[ext_resource type="Script" path="res://globals/supports/Sammy.gd" id="1_f7i3h"]
+[ext_resource type="Script" path="res://globals/supports/pet.gd" id="1_4ruvn"]
 [ext_resource type="Texture2D" uid="uid://dxwteshqg2wc4" path="res://src/Sunny-land-files/Graphical Assets/spritesheets/player.png" id="2_fneeb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jen6f"]
@@ -218,7 +218,7 @@ _data = {
 }
 
 [node name="Sammy" type="Sprite2D"]
-script = ExtResource("1_f7i3h")
+script = ExtResource("1_4ruvn")
 Name = "Sammy"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

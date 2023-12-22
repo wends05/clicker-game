@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgoldym24rogq"]
 
 [ext_resource type="Script" path="res://globals/upgrades.gd" id="1_ngljc"]
-[ext_resource type="Script" path="res://globals/upgrade buttons/Multiplier.gd" id="2_tqisk"]
+[ext_resource type="Script" path="res://globals/upgrade buttons/UpgradeButton.gd" id="2_tqisk"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -30,15 +30,15 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 4.0
 alignment = 1
 
-[node name="Multiplier" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Multiplier" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 disabled = true
 shortcut_feedback = false
 text = "Multiplier"
 script = ExtResource("2_tqisk")
-UI = NodePath("../../..")
+ui = NodePath("../../..")
 
-[node name="Lifesteal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Lifesteal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 disabled = true
 text = "Lifesteal
@@ -47,18 +47,19 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 100
 required_level = 3
-UI = NodePath("../../..")
+ui = NodePath("../../..")
 
-[node name="Crit" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Crit" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 disabled = true
 text = "Crit
 "
 script = ExtResource("2_tqisk")
 increase = 0.04
-UI = NodePath("../../..")
+max_upgrades = 24
+ui = NodePath("../../..")
 
-[node name="Support" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Support" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 text = "Support
 "
@@ -66,23 +67,31 @@ script = ExtResource("2_tqisk")
 required_money = 1
 required_level = 0
 max_upgrades = 2
-UI = NodePath("../../..")
+ui = NodePath("../../..")
 
-[node name="Aspd" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Aspd" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 disabled = true
 text = "Aspd
 "
 script = ExtResource("2_tqisk")
-UI = NodePath("../../..")
+increase = -0.2
+required_money = 1000
+required_level = 5
+max_upgrades = 3
+ui = NodePath("../../..")
 
-[node name="Heal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("UI")]
+[node name="Heal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
 disabled = true
 text = "Heal
 "
 script = ExtResource("2_tqisk")
-UI = NodePath("../../..")
+increase = 0.2
+required_money = 1000
+required_level = 10
+max_upgrades = 3
+ui = NodePath("../../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/Upgrades"]
 layout_mode = 2
