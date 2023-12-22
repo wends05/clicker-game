@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://cbvjenrmjt05k"]
 
+[ext_resource type="Script" path="res://globals/enemy.gd" id="1_edbge"]
 [ext_resource type="Texture2D" uid="uid://dp0bgsl65bajp" path="res://src/sprites/characters/slime.png" id="1_ng3dw"]
-[ext_resource type="Script" path="res://scenes/world1/slime.gd" id="1_owb28"]
 
 [sub_resource type="Animation" id="Animation_v1tfv"]
 length = 0.001
@@ -391,7 +391,7 @@ animations = [{
 }]
 
 [node name="Slime" type="Sprite2D"]
-script = ExtResource("1_owb28")
+script = ExtResource("1_edbge")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Enemy1")
@@ -410,6 +410,5 @@ offset_left = -64.0
 offset_top = -72.0
 offset_right = 64.0
 offset_bottom = -45.0
-step = 1.0
 
 [node name="Timer" type="Timer" parent="."]

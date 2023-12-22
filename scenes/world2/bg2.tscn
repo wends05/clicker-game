@@ -1,0 +1,661 @@
+[gd_scene load_steps=60 format=3 uid="uid://bhphh0s1lulpo"]
+
+[ext_resource type="Texture2D" uid="uid://cj4xkd6vsvs6q" path="res://scenes/world2/world themes for godot game project (2)/10.png" id="1_mq6jb"]
+[ext_resource type="Texture2D" uid="uid://bdttbsy0n47pk" path="res://scenes/world2/world themes for godot game project (2)/12.png" id="2_64ow1"]
+[ext_resource type="Texture2D" uid="uid://4xmj14nr76b" path="res://scenes/world2/world themes for godot game project (2)/11.png" id="3_dg1qx"]
+[ext_resource type="Texture2D" uid="uid://du4uynmmnt634" path="res://scenes/world2/world themes for godot game project (2)/21.png" id="4_nww8b"]
+[ext_resource type="Texture2D" uid="uid://co1wdo36rejdj" path="res://scenes/world2/world themes for godot game project (2)/22.png" id="5_wsw5e"]
+[ext_resource type="Texture2D" uid="uid://cmv0iyagrjs6u" path="res://scenes/world2/world themes for godot game project (2)/23.png" id="6_bg875"]
+[ext_resource type="Texture2D" uid="uid://cov4kdlrb3ksd" path="res://scenes/world2/world themes for godot game project (2)/24.png" id="7_2ayf3"]
+[ext_resource type="Texture2D" uid="uid://c27bxspmnori4" path="res://scenes/world2/world themes for godot game project (2)/25.png" id="8_7or51"]
+[ext_resource type="Texture2D" uid="uid://cgw1a47o0dxp7" path="res://scenes/world2/world themes for godot game project (2)/26.png" id="9_bkxqd"]
+[ext_resource type="Texture2D" uid="uid://xpf55u1axplp" path="res://scenes/world2/world themes for godot game project (2)/27.png" id="10_0ks0l"]
+[ext_resource type="Texture2D" uid="uid://bx1anqa10acd0" path="res://scenes/world2/world themes for godot game project (2)/28.png" id="11_ev15q"]
+[ext_resource type="Texture2D" uid="uid://6jr1o3sfq2qk" path="res://scenes/world2/world themes for godot game project (2)/29.png" id="12_8snys"]
+[ext_resource type="Texture2D" uid="uid://b6pdn4p7w3ju7" path="res://scenes/world2/world themes for godot game project (2)/30.png" id="13_ufvpb"]
+[ext_resource type="Texture2D" uid="uid://c2aec5yff1gg1" path="res://scenes/world2/world themes for godot game project (2)/31.png" id="14_aglhd"]
+[ext_resource type="Texture2D" uid="uid://b6jh6wcg3mjik" path="res://scenes/world2/world themes for godot game project (2)/32.png" id="15_fhs33"]
+[ext_resource type="Texture2D" uid="uid://dkirru02jn7ma" path="res://scenes/world2/world themes for godot game project (2)/13.png" id="16_x30ld"]
+[ext_resource type="Texture2D" uid="uid://cmsuar6llmvue" path="res://scenes/world2/world themes for godot game project (2)/14.png" id="17_fx83q"]
+[ext_resource type="Texture2D" uid="uid://bya6ftwsj5lnk" path="res://scenes/world2/world themes for godot game project (2)/15.png" id="18_tihks"]
+[ext_resource type="Texture2D" uid="uid://dnbk2q3is0lk2" path="res://scenes/world2/world themes for godot game project (2)/16.png" id="19_5sk5o"]
+[ext_resource type="Texture2D" uid="uid://bcidyy7r45pkt" path="res://scenes/world2/world themes for godot game project (2)/17.png" id="20_b0lfl"]
+[ext_resource type="Texture2D" uid="uid://dqiovoacga8k" path="res://scenes/world2/world themes for godot game project (2)/18.png" id="21_47cb6"]
+[ext_resource type="Texture2D" uid="uid://cy0sgj0mmr1xr" path="res://scenes/world2/world themes for godot game project (3)/18.png" id="22_jgxrb"]
+[ext_resource type="Texture2D" uid="uid://b1t4pt2mutf2a" path="res://scenes/world2/world themes for godot game project (2)/19.png" id="22_m7mno"]
+
+[sub_resource type="Animation" id="Animation_44erd"]
+resource_name = "rock1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(573, 803), Vector2(576, 320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnc54"]
+_data = {
+"rock1": SubResource("Animation_44erd")
+}
+
+[sub_resource type="Animation" id="Animation_dgx5p"]
+resource_name = "rock2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(579, 772), Vector2(579, 319.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hq7xb"]
+_data = {
+"rock2": SubResource("Animation_dgx5p")
+}
+
+[sub_resource type="Animation" id="Animation_j1x1p"]
+resource_name = "tree1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(577, 460), Vector2(576, 321)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8d7p"]
+_data = {
+"tree1": SubResource("Animation_j1x1p")
+}
+
+[sub_resource type="Animation" id="Animation_etqme"]
+resource_name = "tree2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(577, 484), Vector2(577, 318)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uikuj"]
+_data = {
+"tree2": SubResource("Animation_etqme")
+}
+
+[sub_resource type="Animation" id="Animation_dncig"]
+resource_name = "tree3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(572, 528), Vector2(575, 320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgh8m"]
+_data = {
+"tree3": SubResource("Animation_dncig")
+}
+
+[sub_resource type="Animation" id="Animation_s8k6l"]
+resource_name = "tree4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(577, 567), Vector2(577, 321)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w73xf"]
+_data = {
+"tree4": SubResource("Animation_s8k6l")
+}
+
+[sub_resource type="Animation" id="Animation_crx1v"]
+resource_name = "tree5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(575, 643), Vector2(575, 321)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02djr"]
+_data = {
+"tree5": SubResource("Animation_crx1v")
+}
+
+[sub_resource type="Animation" id="Animation_vj8d3"]
+resource_name = "badtree1"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(579, 332), Vector2(575, 322), Vector2(590, 325), Vector2(578, 334)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shm4y"]
+_data = {
+"badtree1": SubResource("Animation_vj8d3")
+}
+
+[sub_resource type="Animation" id="Animation_f1ack"]
+resource_name = "badtree2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(579, 319), Vector2(573, 299), Vector2(588, 299)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2ot1"]
+_data = {
+"badtree2": SubResource("Animation_f1ack")
+}
+
+[sub_resource type="Animation" id="Animation_0vsir"]
+resource_name = "badtree3"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(575, 319), Vector2(571, 337), Vector2(594, 326), Vector2(563, 319)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_garbc"]
+_data = {
+"badtree3": SubResource("Animation_0vsir")
+}
+
+[sub_resource type="Animation" id="Animation_v57ek"]
+resource_name = "badtree4"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(578, 344), Vector2(575, 323)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tg1o"]
+_data = {
+"badtree4": SubResource("Animation_v57ek")
+}
+
+[sub_resource type="Animation" id="Animation_5cgo7"]
+resource_name = "badtree5"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(585, 313), Vector2(551, 326), Vector2(528, 317), Vector2(476, 332)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lsqwl"]
+_data = {
+"badtree5": SubResource("Animation_5cgo7")
+}
+
+[sub_resource type="Animation" id="Animation_3xs58"]
+resource_name = "badtree6"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(605, 324), Vector2(574, 336), Vector2(551, 313), Vector2(591, 332)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0uee"]
+_data = {
+"badtree6": SubResource("Animation_3xs58")
+}
+
+[sub_resource type="Animation" id="Animation_ltdpp"]
+resource_name = "moon1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(840, 395), Vector2(583, 259), Vector2(335, 54)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmlsa"]
+_data = {
+"moon1": SubResource("Animation_ltdpp")
+}
+
+[sub_resource type="Animation" id="Animation_sbmui"]
+resource_name = "moon2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-283, 79), Vector2(-290, 315)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrm6w"]
+_data = {
+"moon2": SubResource("Animation_sbmui")
+}
+
+[sub_resource type="Animation" id="Animation_u5amv"]
+resource_name = "cloud1"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(595, 445), Vector2(589, 476), Vector2(604, 462), Vector2(592, 455)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh47v"]
+_data = {
+"cloud1": SubResource("Animation_u5amv")
+}
+
+[sub_resource type="Animation" id="Animation_yp25j"]
+resource_name = "cloud2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1423, 472), Vector2(1415, 492), Vector2(1430, 488), Vector2(1421, 457)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kydhi"]
+_data = {
+"cloud2": SubResource("Animation_yp25j")
+}
+
+[sub_resource type="Animation" id="Animation_t5cvr"]
+resource_name = "cloud3"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(614, 237), Vector2(591, 233), Vector2(551, 238), Vector2(559, 225)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tb82g"]
+_data = {
+"cloud3": SubResource("Animation_t5cvr")
+}
+
+[node name="world2" type="ParallaxBackground"]
+
+[node name="BG" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+position = Vector2(-13.5, 204.125)
+scale = Vector2(1.03973, 0.6875)
+texture = ExtResource("1_mq6jb")
+
+[node name="rocks" type="ParallaxLayer" parent="."]
+
+[node name="rock1" type="Sprite2D" parent="rocks"]
+position = Vector2(573, 803)
+scale = Vector2(0.514342, 0.505357)
+texture = ExtResource("2_64ow1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocks/rock1"]
+libraries = {
+"": SubResource("AnimationLibrary_lnc54")
+}
+autoplay = "rock1"
+speed_scale = 0.05
+
+[node name="rock2" type="Sprite2D" parent="rocks"]
+position = Vector2(579, 772)
+scale = Vector2(0.516071, 0.505556)
+texture = ExtResource("3_dg1qx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocks/rock2"]
+libraries = {
+"": SubResource("AnimationLibrary_hq7xb")
+}
+autoplay = "rock2"
+speed_scale = 0.06
+
+[node name="giant tree" type="ParallaxLayer" parent="."]
+
+[node name="giantree" type="Sprite2D" parent="giant tree"]
+position = Vector2(576.5, 320.25)
+scale = Vector2(0.515625, 0.505159)
+texture = ExtResource("4_nww8b")
+
+[node name="trees" type="ParallaxLayer" parent="."]
+
+[node name="tree1" type="Sprite2D" parent="trees"]
+position = Vector2(577, 460)
+scale = Vector2(0.513393, 0.507143)
+texture = ExtResource("5_wsw5e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees/tree1"]
+libraries = {
+"": SubResource("AnimationLibrary_m8d7p")
+}
+autoplay = "tree1"
+speed_scale = 0.09
+
+[node name="tree2" type="Sprite2D" parent="trees"]
+position = Vector2(577, 484)
+scale = Vector2(0.513393, 0.507937)
+texture = ExtResource("6_bg875")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees/tree2"]
+libraries = {
+"": SubResource("AnimationLibrary_uikuj")
+}
+autoplay = "tree2"
+speed_scale = 0.08
+
+[node name="tree3" type="Sprite2D" parent="trees"]
+position = Vector2(572, 528)
+scale = Vector2(0.5125, 0.503968)
+texture = ExtResource("7_2ayf3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees/tree3"]
+libraries = {
+"": SubResource("AnimationLibrary_vgh8m")
+}
+autoplay = "tree3"
+speed_scale = 0.07
+
+[node name="tree4" type="Sprite2D" parent="trees"]
+position = Vector2(577, 567)
+scale = Vector2(0.515179, 0.503175)
+texture = ExtResource("8_7or51")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees/tree4"]
+libraries = {
+"": SubResource("AnimationLibrary_w73xf")
+}
+autoplay = "tree4"
+speed_scale = 0.06
+
+[node name="tree5" type="Sprite2D" parent="trees"]
+position = Vector2(575, 643)
+scale = Vector2(0.513393, 0.506349)
+texture = ExtResource("9_bkxqd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees/tree5"]
+libraries = {
+"": SubResource("AnimationLibrary_02djr")
+}
+autoplay = "tree5"
+speed_scale = 0.05
+
+[node name="trees bad" type="ParallaxLayer" parent="."]
+
+[node name="badtree1" type="Sprite2D" parent="trees bad"]
+position = Vector2(579, 332)
+scale = Vector2(0.512946, 0.505556)
+texture = ExtResource("10_0ks0l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree1"]
+libraries = {
+"": SubResource("AnimationLibrary_shm4y")
+}
+autoplay = "badtree1"
+speed_scale = 0.1
+
+[node name="badtree2" type="Sprite2D" parent="trees bad"]
+position = Vector2(579, 319)
+scale = Vector2(0.513393, 0.507937)
+texture = ExtResource("11_ev15q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree2"]
+libraries = {
+"": SubResource("AnimationLibrary_k2ot1")
+}
+autoplay = "badtree2"
+speed_scale = 0.1
+
+[node name="badtree3" type="Sprite2D" parent="trees bad"]
+position = Vector2(575, 319)
+scale = Vector2(0.514286, 0.506349)
+texture = ExtResource("12_8snys")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree3"]
+libraries = {
+"": SubResource("AnimationLibrary_garbc")
+}
+autoplay = "badtree3"
+speed_scale = 0.1
+
+[node name="badtree4" type="Sprite2D" parent="trees bad"]
+position = Vector2(578, 344)
+scale = Vector2(0.515625, 0.505556)
+texture = ExtResource("13_ufvpb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree4"]
+libraries = {
+"": SubResource("AnimationLibrary_4tg1o")
+}
+autoplay = "badtree4"
+speed_scale = 0.1
+
+[node name="badtree5" type="Sprite2D" parent="trees bad"]
+position = Vector2(585, 313)
+scale = Vector2(0.5125, 0.504762)
+texture = ExtResource("14_aglhd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree5"]
+libraries = {
+"": SubResource("AnimationLibrary_lsqwl")
+}
+autoplay = "badtree5"
+speed_scale = 0.1
+
+[node name="badtree6" type="Sprite2D" parent="trees bad"]
+position = Vector2(605, 324)
+scale = Vector2(0.514286, 0.50873)
+texture = ExtResource("15_fhs33")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="trees bad/badtree6"]
+libraries = {
+"": SubResource("AnimationLibrary_v0uee")
+}
+autoplay = "badtree6"
+speed_scale = 0.1
+
+[node name="platform" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+position = Vector2(577, 323)
+scale = Vector2(0.514286, 0.504762)
+texture = ExtResource("16_x30ld")
+
+[node name="Sprite2D2" type="Sprite2D" parent="platform"]
+position = Vector2(574, 321)
+scale = Vector2(0.513839, 0.507937)
+texture = ExtResource("17_fx83q")
+
+[node name="Sprite2D3" type="Sprite2D" parent="platform"]
+position = Vector2(582, 322)
+scale = Vector2(0.513839, 0.505556)
+texture = ExtResource("18_tihks")
+
+[node name="Sprite2D4" type="Sprite2D" parent="platform"]
+position = Vector2(578, 321)
+scale = Vector2(0.512946, 0.504762)
+texture = ExtResource("19_5sk5o")
+
+[node name="moon clouds" type="ParallaxLayer" parent="."]
+
+[node name="moon1" type="Sprite2D" parent="moon clouds"]
+position = Vector2(840, 395)
+scale = Vector2(0.513393, 0.497619)
+texture = ExtResource("22_jgxrb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon clouds/moon1"]
+libraries = {
+"": SubResource("AnimationLibrary_mmlsa")
+}
+autoplay = "moon1"
+speed_scale = 0.003
+
+[node name="moon2" type="Sprite2D" parent="moon clouds"]
+position = Vector2(-283, 79)
+scale = Vector2(0.513393, 0.497619)
+texture = ExtResource("20_b0lfl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon clouds/moon2"]
+libraries = {
+"": SubResource("AnimationLibrary_vrm6w")
+}
+autoplay = "moon2"
+speed_scale = 0.001
+
+[node name="cloud1" type="Sprite2D" parent="moon clouds"]
+position = Vector2(595, 445)
+scale = Vector2(0.5125, 0.684921)
+texture = ExtResource("21_47cb6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon clouds/cloud1"]
+libraries = {
+"": SubResource("AnimationLibrary_hh47v")
+}
+autoplay = "cloud1"
+speed_scale = 0.01
+
+[node name="cloud2" type="Sprite2D" parent="moon clouds"]
+position = Vector2(1423, 472)
+scale = Vector2(0.5125, 0.684921)
+texture = ExtResource("21_47cb6")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon clouds/cloud2"]
+libraries = {
+"": SubResource("AnimationLibrary_kydhi")
+}
+autoplay = "cloud2"
+speed_scale = 0.01
+
+[node name="cloud3" type="Sprite2D" parent="moon clouds"]
+position = Vector2(614, 237)
+scale = Vector2(0.515179, 0.503175)
+texture = ExtResource("22_m7mno")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon clouds/cloud3"]
+libraries = {
+"": SubResource("AnimationLibrary_tb82g")
+}
+autoplay = "cloud3"
+speed_scale = 0.01
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]

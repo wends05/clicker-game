@@ -1,0 +1,202 @@
+[gd_scene load_steps=17 format=3 uid="uid://coikn6agmdb6d"]
+
+[ext_resource type="Script" path="res://scenes/world3/bg3.gd" id="1_p34io"]
+[ext_resource type="Texture2D" uid="uid://bmxt6gne1y2b4" path="res://scenes/world3/world themes for godot game project/world themes for godot game project.png" id="2_o1e2k"]
+[ext_resource type="Texture2D" uid="uid://bige2awhbqcpa" path="res://scenes/world3/world themes for godot game project/27.png" id="3_4ag70"]
+[ext_resource type="Texture2D" uid="uid://cueadj4jijsah" path="res://scenes/world3/world themes for godot game project/24.png" id="4_k0eyb"]
+[ext_resource type="Texture2D" uid="uid://cfa002hhawfbj" path="res://scenes/world3/world themes for godot game project/25.png" id="5_6vwr8"]
+[ext_resource type="Texture2D" uid="uid://dqt8ctlskbly" path="res://scenes/world3/world themes for godot game project/21.png" id="6_ng03n"]
+[ext_resource type="Texture2D" uid="uid://c6d1cl4uledom" path="res://scenes/world3/world themes for godot game project/3right.png" id="7_t2uwe"]
+[ext_resource type="Texture2D" uid="uid://brisrcp8idjso" path="res://scenes/world3/world themes for godot game project/3left.png" id="9_s1e8s"]
+
+[sub_resource type="Animation" id="Animation_7qc55"]
+resource_name = "moon"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(592, 357), Vector2(200, 205), Vector2(-211, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ok48b"]
+_data = {
+"moon": SubResource("Animation_7qc55")
+}
+
+[sub_resource type="Animation" id="Animation_fp0b3"]
+resource_name = "castle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(588, 271), Vector2(588, 257), Vector2(588, 273)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62kpp"]
+_data = {
+"castle": SubResource("Animation_fp0b3")
+}
+
+[sub_resource type="Animation" id="Animation_oyjur"]
+resource_name = "treeright"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(983, 320), Vector2(978, 650)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o4bk"]
+_data = {
+"treeright": SubResource("Animation_oyjur")
+}
+
+[sub_resource type="Animation" id="Animation_s3jst"]
+resource_name = "treeleft"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(138, 728), Vector2(157, 252)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emyws"]
+_data = {
+"treeleft": SubResource("Animation_s3jst")
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_p34io")
+
+[node name="bg" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="stars" type="Sprite2D" parent="bg"]
+position = Vector2(576.5, 323)
+scale = Vector2(0.520089, 0.523809)
+texture = ExtResource("2_o1e2k")
+
+[node name="moon3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="moon3"]
+position = Vector2(592, 357)
+scale = Vector2(0.513414, 0.520399)
+texture = ExtResource("4_k0eyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moon3/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ok48b")
+}
+autoplay = "moon"
+speed_scale = 0.005
+
+[node name="bg2castle" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="castle" type="Sprite2D" parent="bg2castle"]
+position = Vector2(588, 280)
+scale = Vector2(0.476563, 0.481349)
+texture = ExtResource("3_4ag70")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg2castle/castle"]
+libraries = {
+"": SubResource("AnimationLibrary_62kpp")
+}
+autoplay = "castle"
+speed_scale = 0.05
+
+[node name="bg3tree" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="right" type="Sprite2D" parent="bg3tree"]
+position = Vector2(983, 320)
+scale = Vector2(0.51183, 0.418452)
+texture = ExtResource("7_t2uwe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg3tree/right"]
+libraries = {
+"": SubResource("AnimationLibrary_4o4bk")
+}
+autoplay = "treeright"
+speed_scale = 0.005
+
+[node name="left" type="Sprite2D" parent="bg3tree"]
+position = Vector2(138, 728)
+scale = Vector2(0.514286, 0.51746)
+texture = ExtResource("9_s1e8s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg3tree/left"]
+libraries = {
+"": SubResource("AnimationLibrary_emyws")
+}
+autoplay = "treeleft"
+speed_scale = 0.005
+
+[node name="bg6clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="back clouds" type="Sprite2D" parent="bg6clouds"]
+position = Vector2(476, 328)
+scale = Vector2(0.380246, 0.426587)
+texture = ExtResource("5_6vwr8")
+
+[node name="bg6clouds3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="middle clouds" type="Sprite2D" parent="bg6clouds3"]
+position = Vector2(717.188, 328)
+scale = Vector2(0.454297, 0.451438)
+texture = ExtResource("5_6vwr8")
+
+[node name="bg6clouds2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="front clouds" type="Sprite2D" parent="bg6clouds2"]
+position = Vector2(559.813, 278.094)
+scale = Vector2(0.528404, 0.5938)
+texture = ExtResource("5_6vwr8")
+
+[node name="bg5platform" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="platform" type="Sprite2D" parent="bg5platform"]
+position = Vector2(292.875, 384.375)
+scale = Vector2(0.267076, 0.427579)
+texture = ExtResource("6_ng03n")
+
+[node name="platform 2" type="Sprite2D" parent="bg5platform"]
+position = Vector2(890, 385)
+scale = Vector2(0.267076, 0.427579)
+texture = ExtResource("6_ng03n")

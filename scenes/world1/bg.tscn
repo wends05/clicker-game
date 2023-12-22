@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxo6uov8tdrqm" path="res://src/orig/bg/world1/6.png" id="4_sd82u"]
 [ext_resource type="Texture2D" uid="uid://dbmjefx1ubxde" path="res://src/orig/bg/world1/5.png" id="5_u40jj"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="world1" type="ParallaxBackground"]
 script = ExtResource("1_g24at")
 
 [node name="bg" type="ParallaxLayer" parent="."]

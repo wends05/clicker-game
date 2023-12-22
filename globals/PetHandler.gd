@@ -9,6 +9,6 @@ func addSupport() -> void:
 		var Sammy : Pet = preload("res://globals/supports/sammy.tscn").instantiate()
 		add_child(Sammy)
 	if Globals.supports == 2:
-		var posay : Pet = preload("res://globals/supports/bogart.tscn").instantiate()
-		add_child(posay)
-		posay.position.x += 64
+		var Bogart : Pet = preload("res://globals/supports/bogart.tscn").instantiate()
+		add_child(Bogart)
+		Bogart.position.x += 64
