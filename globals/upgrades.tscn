@@ -50,6 +50,7 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 100
 required_level = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Crit" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -59,7 +60,7 @@ text = "Crit
 "
 script = ExtResource("2_tqisk")
 increase = 0.04
-max_upgrades = 24
+max_upgrade = 100
 ui = NodePath("../../..")
 
 [node name="Support" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -69,7 +70,7 @@ text = "Support
 script = ExtResource("2_tqisk")
 required_money = 1
 required_level = 0
-max_upgrades = 2
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Aspd" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -81,7 +82,7 @@ script = ExtResource("2_tqisk")
 increase = -0.2
 required_money = 1000
 required_level = 5
-max_upgrades = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Heal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -93,7 +94,7 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 1000
 required_level = 10
-max_upgrades = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/Upgrades"]

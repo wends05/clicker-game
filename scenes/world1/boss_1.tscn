@@ -433,7 +433,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Boss1" type="Sprite2D"]
+[node name="Slime King" type="Sprite2D"]
 script = ExtResource("1_s0amu")
 Name = "Slime King"
 attack = 20.0

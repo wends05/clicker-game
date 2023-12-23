@@ -31,9 +31,6 @@ func _process(_delta: float) -> void:
 		Level.text = str(Globals.player_level)
 
 func change_world(boss : Boss):
-
 	blackbg.play("fade")
-
-	match boss.Name:
-		"Slime King":
-			pass
+	await blackbg.animation_finished
+	get_tree().reload_current_scene()
