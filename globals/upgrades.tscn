@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgoldym24rogq"]
+[gd_scene load_steps=4 format=3 uid="uid://cgoldym24rogq"]
 
 [ext_resource type="Script" path="res://globals/upgrades.gd" id="1_ngljc"]
 [ext_resource type="Script" path="res://globals/upgrade buttons/UpgradeButton.gd" id="2_tqisk"]
+
+[sub_resource type="Theme" id="Theme_3hyi8"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -32,6 +34,7 @@ alignment = 1
 
 [node name="Multiplier" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
+theme = SubResource("Theme_3hyi8")
 disabled = true
 shortcut_feedback = false
 text = "Multiplier"
@@ -47,6 +50,7 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 100
 required_level = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Crit" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -56,7 +60,7 @@ text = "Crit
 "
 script = ExtResource("2_tqisk")
 increase = 0.04
-max_upgrades = 24
+max_upgrade = 100
 ui = NodePath("../../..")
 
 [node name="Support" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -66,7 +70,7 @@ text = "Support
 script = ExtResource("2_tqisk")
 required_money = 1
 required_level = 0
-max_upgrades = 2
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Aspd" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -78,7 +82,7 @@ script = ExtResource("2_tqisk")
 increase = -0.2
 required_money = 1000
 required_level = 5
-max_upgrades = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="Heal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -90,7 +94,7 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 1000
 required_level = 10
-max_upgrades = 3
+max_upgrade = 2
 ui = NodePath("../../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/Upgrades"]

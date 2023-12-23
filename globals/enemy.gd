@@ -11,7 +11,7 @@ class_name Enemy
 
 var die : bool = false
 
-@export var attack: float = 5
+@export var attack: float = 3
 @export var speed: float = 1
 
 @export_category("Benefits")
