@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgoldym24rogq"]
+[gd_scene load_steps=4 format=3 uid="uid://cgoldym24rogq"]
 
 [ext_resource type="Script" path="res://globals/upgrades.gd" id="1_ngljc"]
 [ext_resource type="Script" path="res://globals/upgrade buttons/UpgradeButton.gd" id="2_tqisk"]
+
+[sub_resource type="Theme" id="Theme_3hyi8"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -32,6 +34,7 @@ alignment = 1
 
 [node name="Multiplier" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
 layout_mode = 2
+theme = SubResource("Theme_3hyi8")
 disabled = true
 shortcut_feedback = false
 text = "Multiplier"

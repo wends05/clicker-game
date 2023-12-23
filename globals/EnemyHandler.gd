@@ -3,8 +3,13 @@ extends Marker2D
 @onready var timer : Timer = $Timer
 
 func _ready() -> void:
+	# wait for animation
+	timer.start(1)
+	await timer.timeout
+
 	startRound()
 	Globals.connect('enemyDied', enemyDiedHandler)
+	#Globals.bossDied.connect(bossDiedHandler)
 
 func startRound() -> void:
 	Globals.player_ready_to_attack = false
@@ -24,7 +29,9 @@ func identifyEnemy() -> void:
 			var Slime : Enemy = preload("res://scenes/world1/slime.tscn").instantiate()
 			spawnEnemy(Slime)
 		_:
-			print_debug("no enemy identified")
+			print_debug("no enemy identified, spawning slime for the meantime")
+			var Slime : Enemy = preload("res://scenes/world1/slime.tscn").instantiate()
+			spawnEnemy(Slime)
 
 func identifyBoss() -> void:
 	match Globals.current_world:
@@ -49,8 +56,7 @@ func enemyDiedHandler(body: Enemy) -> void:
 	else:
 		moveEnemies()
 
-func bossDiedHandler(boss: Boss) -> void:
-	Globals.player_ready_to_attack = true
+
 
 func moveEnemies() -> void:
 	timer.start(0.1)

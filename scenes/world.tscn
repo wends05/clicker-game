@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdfngiqiax4m4"]
+[gd_scene load_steps=16 format=3 uid="uid://bdfngiqiax4m4"]
 
 [ext_resource type="Script" path="res://scenes/world1/world1.gd" id="1_hvhbo"]
 [ext_resource type="Script" path="res://globals/EnemyHandler.gd" id="5_6simp"]
@@ -29,6 +29,66 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_xvvga"]
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_we6cp"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_87tte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbl35"]
+_data = {
+"RESET": SubResource("Animation_87tte"),
+"fade": SubResource("Animation_we6cp")
+}
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("HPBar", "EXPBar", "Level")]
 script = ExtResource("1_hvhbo")
@@ -89,11 +149,18 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_fmuss")
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI/Pause Menu"]
+title = "Confirmation"
+initial_position = 2
+size = Vector2i(300, 158)
+dialog_text = "hoy pag sure nga ma reset ka data from the very start of the game??"
+dialog_autowrap = true
+
 [node name="Panel" type="ColorRect" parent="UI/Pause Menu"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 640.0
-color = Color(0.117647, 0.117647, 0.117647, 0.647059)
+color = Color(0.117647, 0.117647, 0.117647, 0.278431)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/Pause Menu"]
 stream = ExtResource("9_oxywy")
@@ -107,6 +174,11 @@ offset_top = 264.0
 offset_right = 704.0
 offset_bottom = 640.0
 
+[node name="Autosave" type="CheckBox" parent="UI/Pause Menu/VBoxContainer"]
+layout_mode = 2
+text = "Auto Save"
+alignment = 1
+
 [node name="Save" type="Button" parent="UI/Pause Menu/VBoxContainer"]
 layout_mode = 2
 text = "Save"
@@ -114,6 +186,10 @@ text = "Save"
 [node name="Quit" type="Button" parent="UI/Pause Menu/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Reset" type="Button" parent="UI/Pause Menu/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Pause Menu/VBoxContainer"]
 layout_mode = 2
@@ -132,4 +208,20 @@ layout_mode = 2
 min_value = -35.0
 max_value = 1.0
 
+[node name="blackbg" type="ColorRect" parent="UI"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/blackbg"]
+libraries = {
+"": SubResource("AnimationLibrary_qbl35")
+}
+
+[connection signal="confirmed" from="UI/Pause Menu/ConfirmationDialog" to="UI/Pause Menu" method="_on_confirmation_dialog_confirmed"]
+[connection signal="toggled" from="UI/Pause Menu/VBoxContainer/Autosave" to="UI/Pause Menu" method="_on_autosave_toggled"]
+[connection signal="pressed" from="UI/Pause Menu/VBoxContainer/Save" to="UI/Pause Menu" method="_on_save_pressed"]
+[connection signal="pressed" from="UI/Pause Menu/VBoxContainer/Quit" to="UI/Pause Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Pause Menu/VBoxContainer/Reset" to="UI/Pause Menu" method="_on_reset_pressed"]
 [connection signal="value_changed" from="UI/Pause Menu/VBoxContainer/HSlider" to="UI/Pause Menu" method="_on_h_slider_value_changed"]

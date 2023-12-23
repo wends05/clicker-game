@@ -21,6 +21,8 @@ var support_heal_strength: float = 1
 var current_world: int = 1
 var boss_level: bool = true
 
+var autosave : bool
+
 #state (?) variables
 var player_ready_to_attack: bool = false
 
@@ -38,6 +40,8 @@ signal supportAdded
 signal supportAttacked(pet: Pet)
 signal supportHealed(pet: Pet)
 
+var data : Dictionary
+
 func _process(_delta: float) -> void:
 
 	if player_exp >= player_max_exp:
@@ -53,9 +57,92 @@ func _process(_delta: float) -> void:
 		boss_level = true
 	else: boss_level = false
 
+# save and load function
 
+const SAVE_FILE_PATH : String = "res://SAVEDATA.json"
 
+func _ready() -> void:
 
+	player_ready_to_attack = false
 
+	var file : FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	if FileAccess.file_exists(SAVE_FILE_PATH):
+		if not file.eof_reached():
 
+			var saved : Variant = JSON.parse_string(file.get_line())
 
+			if saved:
+
+				Max_HP = saved["Max_HP"]
+				Current_HP = saved["Current_HP"]
+				money = saved["Money"]
+				multiplier = saved["multiplier"]
+
+				lifesteal_multiplier = saved["lifesteal"]
+				crit = saved["crit"]
+
+				player_level = saved["player_level"]
+				player_exp = saved["player_exp"]
+				player_max_exp = saved["player_max_exp"]
+
+				supports = saved["supports"]
+				support_speed = saved["support_speed"]
+				support_heal_strength = saved["support_heal_strength"]
+
+				current_world = saved["current_world"]
+				boss_level = saved["boss_level"]
+
+				autosave = saved["autosave"]
+
+	save_data()
+
+func _exit_tree() -> void:
+	var file_new : FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+
+	if autosave:
+		save_data()
+
+	data["autosave"] = autosave
+	file_new.store_line(JSON.stringify(data))
+
+func save_data() -> void:
+	data = {
+			"Max_HP" : Max_HP,
+			"Current_HP" : Current_HP,
+			"Money" : money,
+			"multiplier" : multiplier,
+
+			"lifesteal" : lifesteal_multiplier,
+			"crit" : crit,
+
+			"player_level" : player_level,
+			"player_exp" : player_exp,
+			"player_max_exp" : player_max_exp,
+
+			"supports" : supports,
+			"support_speed" : support_speed,
+			"support_heal_strength" : support_heal_strength,
+
+			"current_world" : current_world,
+			"boss_level" : boss_level,
+		}
+
+func resetData() -> void:
+	Max_HP = 100
+	Current_HP = 100
+
+	money = 0
+	multiplier = 1
+	lifesteal_multiplier = 1
+	crit = 0.04
+
+	player_level = 0
+	player_exp = 0
+	player_max_exp = 10
+
+	supports = 0
+	support_speed = 3
+	support_heal_strength = 1
+
+	current_world = 1
+	boss_level = true

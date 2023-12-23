@@ -5,7 +5,7 @@ extends Node2D
 @export var Level: Label
 
 # handle pets
-const SAVE_GAN_FILE = "res://SAVEDATA.bin"
+const SAVE_GAN_FILE = "res://SAVEDATA.dat"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void :
 	var file = FileAccess.open(SAVE_GAN_FILE, FileAccess.READ)
@@ -23,8 +23,6 @@ func _ready() -> void :
 				Globals.player_exp = savers["EXP"]
 				Globals.player_level = savers["Level"]
 				Globals.money = savers["Money"]
-
-
 
 func _process(_delta: float) -> void:
 	HPBar.value = Globals.Current_HP

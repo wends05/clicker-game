@@ -3,7 +3,7 @@ extends Sprite2D
 class_name Boss
 
 @export var Name: String
-
+@export var world: int = 1
 @export_category("Stats")
 
 @export var Max_HP: int = 200
@@ -72,9 +72,15 @@ func petAttacked(pet: Pet) -> void:
 func handleDie() -> void:
 	die =  (Current_HP <= 0)
 	if die:
-		Globals.player_ready_to_attack = false
 		Globals.player_level += 1
 		Globals.player_exp = 0
+		Globals.player_ready_to_attack = false
+
+		anim.stop()
+		anim.play("die")
+		await anim.animation_finished
+
+		Globals.current_world = world + 1
 		queue_free()
 
 func movePosition() -> void:
@@ -109,4 +115,3 @@ func enemyAttack() -> void:
 		Globals.enemyAttacked.emit(attack)
 		if not die and Globals.player_ready_to_attack:
 			cooldown()
-
