@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djwhd")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -245,3 +245,5 @@ libraries = {
 "": SubResource("AnimationLibrary_jm2m5")
 }
 autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

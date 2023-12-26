@@ -51,16 +51,10 @@ func playerAttacked(crit: bool) -> void:
 		Current_HP -= Globals.multiplier * 2 if crit else Globals.multiplier
 		handleDie()
 
-func petAttacked(pet: Pet) -> void:
-	print_debug(pet)
-
-	var damage : float = pet.attack_multiplier * Globals.multiplier
-
+func petAttacked(damage : float) -> void:
 	if not die:
-		print(Current_HP)
 		Current_HP -= damage
 		Globals.money += damage
-		print(Current_HP)
 		handleDie()
 
 func handleDie() -> void:
@@ -73,16 +67,18 @@ func handleDie() -> void:
 		anim.stop()
 		anim.play("die")
 		await anim.animation_finished
-
 		Globals.bossDied.emit(self)
+		timer.start(1)
+		await timer.timeout
 		Globals.current_world = world + 1
+		Globals.player_exp = 0
 		queue_free()
 
 
 func cooldown() -> void:
 	if not die and Globals.player_ready_to_attack:
 
-		var cd : float = 3 / (speed * get_index())
+		var cd : float = 2 / speed
 		timer.start(cd)
 		print_debug(cd, " : ", get_index())
 		await timer.timeout

@@ -3,14 +3,20 @@ extends Control
 class_name UI
 
 var UI_Closed : bool = false
+var required_checked : bool = false
 
 @onready var Stats : Label = $BoxContainer/Upgrades/Label
 @onready var CloseButton : Button = $BoxContainer/Close/Close
+@onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
+# upgrades that needs to reset when died
 
 func _ready() -> void:
 	for upgrade : Node in $BoxContainer/Upgrades.get_children():
 		if upgrade is UpgradeButton:
-			check_max_upgrades(upgrade)
+			check_upgrades(upgrade)
+	required_checked = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -20,13 +26,15 @@ func _process(_delta: float) -> void:
 	Stats.text = "
 		$: %s
 		x: %s
+		l: %s
 		c: %s%%
 		s: %s
 		a: %s
 		h: %s
 		" % [
-			Globals.money,
+			snapped(Globals.money, 0.01),
 			Globals.multiplier,
+			Globals.lifesteal_multiplier,
 			Globals.crit * 100,
 			Globals.supports ,
 			Globals.support_speed,
@@ -44,12 +52,8 @@ func _on_close_pressed() -> void:
 		CloseButton.text = "Close"
 		UI_Closed = false
 
-func buttonPressed() -> void:
-	pass
-
-
 func update_stat(button: UpgradeButton) -> void:
-	print(button)
+	audio.play()
 
 	Globals.money -= button.required_money
 
@@ -61,42 +65,46 @@ func update_stat(button: UpgradeButton) -> void:
 			button.required_money += 300
 			Globals.lifesteal_multiplier += button.increase
 		"Crit":
-			button.required_money += 1
+			button.required_money += 60
 			Globals.crit += button.increase
 		"Support":
-			button.required_money += 1
+			button.required_money += 500
 			Globals.supports += int(button.increase)
 			Globals.supportAdded.emit()
 		"Aspd":
-			button.required_money += 1
+			button.required_money += 300
 			Globals.support_speed += button.increase
 		"Heal":
-			button.required_money += 1
+			button.required_money += 400
 			Globals.support_heal_strength += button.increase
 		_:
 			push_error("Gaga wala ka button nga muna")
-	check_max_upgrades(button)
+	check_upgrades(button)
 
-func check_max_upgrades(button : UpgradeButton) -> void:
-
-	var max : bool
-
+func check_upgrades(button : UpgradeButton) -> void:
+	var Max : bool
 	match button.name:
+		"Multiplier":
+			if not required_checked: button.required_money += 20 * int(Globals.multiplier - 1)
 		"Lifesteal":
 			if Globals.lifesteal_multiplier == button.max_upgrade:
-				max = true
+				Max = true
+			if not required_checked: button.required_money += 500 * ((Globals.lifesteal_multiplier - 0.8) / 0.2 - 1)
 		"Crit":
 			if Globals.crit == button.max_upgrade:
-				max = true
+				Max = true
+			if not required_checked: button.required_money += 300 * int(Globals.crit / 0.04 - 1)
 		"Support":
 			if Globals.supports == button.max_upgrade:
-				max = true
+				Max = true
+			if not required_checked: button.required_money += 500 * int(Globals.supports)
 		"Aspd":
 			if Globals.support_speed == button.max_upgrade:
-				max = true
+				Max = true
+			if not required_checked: button.required_money += 300 * int(Globals.support_speed / 0.3 - 1)
 		"Heal":
 			if Globals.support_heal_strength == button.max_upgrade:
-				max = true
-	if max:
-		button.disable = true
+				Max = true
+			if not required_checked: button.required_money += 400 * int((Globals.support_heal_strength - 0.8) / 0.2 - 1)
+	if Max: button.disable = true
 

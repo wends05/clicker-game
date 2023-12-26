@@ -20,12 +20,16 @@ func _ready() -> void:
 
 func cooldown() -> void:
 
-	timer.start(speed)
+	var cd : float = 2 / speed
+	timer.start(cd)
 	await timer.timeout
 	if Globals.player_ready_to_attack:
 		pet_attack()
 
 func pet_attack() -> void:
+
+	var calculated_damage : float = attack_multiplier * Globals.multiplier * 0.24
+
 	if Globals.player_ready_to_attack:
 		anim.stop()
 		anim.play("attack")
@@ -34,11 +38,14 @@ func pet_attack() -> void:
 		timer.start(0.4)
 		await timer.timeout
 
-		Globals.supportAttacked.emit(self)
+		Globals.supportAttacked.emit(calculated_damage)
 
-	timer.start(speed)
-	await timer.timeout
+		timer.start(speed)
+		await timer.timeout
 
+		pet_healed()
+
+func pet_healed() -> void:
 	anim.stop()
 	anim.play("heal")
 	timer.start(0.3)
@@ -49,5 +56,4 @@ func pet_attack() -> void:
 	await anim.animation_finished
 	anim.queue("idle")
 
-	if Globals.player_ready_to_attack:
-		cooldown()
+	cooldown()

@@ -1,84 +1,84 @@
 [gd_scene load_steps=32 format=3 uid="uid://xjegfhhx8u3s"]
 
-[ext_resource type="Script" path="res://globals/boss.gd" id="1_s0amu"]
-[ext_resource type="Texture2D" uid="uid://ckkavh1omap7d" path="res://src/orig/BOSS_violet_attack_2.png" id="2_y8f4h"]
-[ext_resource type="Texture2D" uid="uid://l1pc1ewgxa3a" path="res://src/orig/BOSS_violet_idle_4.png" id="3_d41cp"]
-[ext_resource type="Texture2D" uid="uid://dbky30dj0xsgf" path="res://src/orig/boss1_die.png" id="3_nrohi"]
+[ext_resource type="Script" path="res://globals/boss.gd" id="1_b4smw"]
+[ext_resource type="Texture2D" uid="uid://ckkavh1omap7d" path="res://src/orig/BOSS_violet_attack_2.png" id="2_uxmc8"]
+[ext_resource type="Texture2D" uid="uid://dbky30dj0xsgf" path="res://src/orig/boss1_die.png" id="3_73oqr"]
+[ext_resource type="Texture2D" uid="uid://l1pc1ewgxa3a" path="res://src/orig/BOSS_violet_idle_4.png" id="4_eobfy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h08xm"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(0, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwyxg"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(1664, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euejh"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(3328, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtngj"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(4992, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8xto"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(6656, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi48q"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(8320, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kw5f3"]
-atlas = ExtResource("2_y8f4h")
+atlas = ExtResource("2_uxmc8")
 region = Rect2(9984, 0, 1664, 1664)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82kp7"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(0, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1uf5"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(539, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt8g1"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(1078, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkhqj"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(1617, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yyvc"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(2156, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_452ih"]
-atlas = ExtResource("3_nrohi")
+atlas = ExtResource("3_73oqr")
 region = Rect2(2695, 0, 539, 540)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mattm"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(0, 0, 1088, 1088)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64nl3"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(1088, 0, 1088, 1088)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12lud"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(2176, 0, 1088, 1088)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo2l0"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(3264, 0, 1088, 1088)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqhoo"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(4352, 0, 1088, 1088)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1dkf"]
-atlas = ExtResource("3_d41cp")
+atlas = ExtResource("4_eobfy")
 region = Rect2(5440, 0, 1088, 1088)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oog8b"]
@@ -434,9 +434,9 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="Slime King" type="Sprite2D"]
-script = ExtResource("1_s0amu")
+script = ExtResource("1_b4smw")
 Name = "Slime King"
-attack = 20.0
+attack = 30.0
 speed = 0.8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
