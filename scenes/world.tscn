@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdfngiqiax4m4"]
+[gd_scene load_steps=18 format=3 uid="uid://bdfngiqiax4m4"]
 
-[ext_resource type="Script" path="res://scenes/world1/world1.gd" id="1_hvhbo"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_hvhbo"]
 [ext_resource type="Script" path="res://globals/EnemyHandler.gd" id="5_6simp"]
+[ext_resource type="PackedScene" uid="uid://du781bqd87aij" path="res://globals/boss_incoming_label.tscn" id="5_82miu"]
+[ext_resource type="FontFile" uid="uid://6uua2b2o5ncv" path="res://globals/PixeloidMono-d94EV.ttf" id="5_x3hfh"]
 [ext_resource type="PackedScene" uid="uid://t7024drenr5t" path="res://globals/player.tscn" id="6_rv6jc"]
 [ext_resource type="Script" path="res://globals/PetHandler.gd" id="7_eltmy"]
 [ext_resource type="Script" path="res://globals/Pause Menu.gd" id="7_fmuss"]
@@ -120,6 +122,7 @@ offset_left = 384.0
 offset_top = 576.0
 offset_right = 768.0
 offset_bottom = 603.0
+theme_override_fonts/font = ExtResource("5_x3hfh")
 theme_override_styles/background = SubResource("StyleBoxFlat_d5qk4")
 step = 0.0
 
@@ -137,6 +140,7 @@ offset_left = 296.0
 offset_top = 568.0
 offset_right = 376.0
 offset_bottom = 632.0
+theme_override_fonts/font = ExtResource("5_x3hfh")
 text = "1"
 label_settings = SubResource("LabelSettings_0d5hn")
 horizontal_alignment = 1
@@ -144,6 +148,29 @@ vertical_alignment = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
+
+[node name="Confirmation Boxes" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Confirm Reset" type="ConfirmationDialog" parent="UI/Confirmation Boxes"]
+title = "Confirmation"
+initial_position = 2
+size = Vector2i(300, 158)
+dialog_text = "This will reset your progress back to level 0 and world 1. Continue?"
+dialog_autowrap = true
+
+[node name="Player Died Box" type="ConfirmationDialog" parent="UI/Confirmation Boxes"]
+title = "Confirmation"
+initial_position = 2
+size = Vector2i(300, 158)
+ok_button_text = "Continue"
+dialog_text = "You died. You will respawn in the current world."
+dialog_autowrap = true
+
+[node name="Boss Incoming Label" parent="UI" instance=ExtResource("5_82miu")]
 
 [node name="Upgrades" parent="UI" instance=ExtResource("8_m16eq")]
 process_mode = 3
@@ -154,13 +181,6 @@ visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_fmuss")
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI/Pause Menu"]
-title = "Confirmation"
-initial_position = 2
-size = Vector2i(300, 158)
-dialog_text = "hoy pag sure nga ma reset ka data from the very start of the game??"
-dialog_autowrap = true
 
 [node name="Panel" type="ColorRect" parent="UI/Pause Menu"]
 layout_mode = 0
@@ -225,7 +245,8 @@ libraries = {
 "": SubResource("AnimationLibrary_qbl35")
 }
 
-[connection signal="confirmed" from="UI/Pause Menu/ConfirmationDialog" to="UI/Pause Menu" method="_on_confirmation_dialog_confirmed"]
+[connection signal="confirmed" from="UI/Confirmation Boxes/Confirm Reset" to="UI/Pause Menu" method="_on_confirm_reset_confirmed"]
+[connection signal="confirmed" from="UI/Confirmation Boxes/Player Died Box" to="UI/Pause Menu" method="_on_confirmation_dialog_2_confirmed"]
 [connection signal="toggled" from="UI/Pause Menu/VBoxContainer/Autosave" to="UI/Pause Menu" method="_on_autosave_toggled"]
 [connection signal="pressed" from="UI/Pause Menu/VBoxContainer/Save" to="UI/Pause Menu" method="_on_save_pressed"]
 [connection signal="pressed" from="UI/Pause Menu/VBoxContainer/Quit" to="UI/Pause Menu" method="_on_quit_pressed"]

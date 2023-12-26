@@ -9,20 +9,24 @@ func _ready() -> void:
 
 	startRound()
 	Globals.connect('enemyDied', enemyDiedHandler)
-	#Globals.bossDied.connect(bossDiedHandler)
 
 func startRound() -> void:
 	Globals.player_ready_to_attack = false
+
+	# makes sure that the next round is a boss
+	timer.start(0.01)
+	await timer.timeout
+
+	print_debug("player hp is at: ", Globals.Max_HP)
+
 	if Globals.boss_level:
 		identifyBoss()
-		Globals.player_ready_to_attack = true
 	else:
 		for i : int in range(randi_range(2, 4)):
 			timer.start(1)
 			await timer.timeout
 			identifyEnemy()
 		Globals.player_ready_to_attack = true
-	enemiesAttack()
 
 func identifyEnemy() -> void:
 	match Globals.current_world:
@@ -38,25 +42,39 @@ func identifyEnemy() -> void:
 			spawnEnemy(Slime)
 
 func identifyBoss() -> void:
+	# small interval
+
+	timer.start(5)
+	$"../UI/Boss Incoming Label".write()
+	await timer.timeout
+
+	$"../UI/Boss Incoming Label".text = ""
+
 	match Globals.current_world:
 		1:
-			var Chakadoll : Boss = preload("res://scenes/world1/boss_1.tscn").instantiate()
+			var Chakadoll : Boss = preload("res://scenes/world1/Slime King.tscn").instantiate()
 			spawnEnemy(Chakadoll)
 		2:
 			var Witch : Boss = preload("res://scenes/world2/witch.tscn").instantiate()
 			spawnEnemy(Witch)
+		3:
+			var Slime_King : Boss = preload("res://scenes/world1/Slime King.tscn").instantiate()
+			spawnEnemy(Slime_King)
 
 func spawnEnemy(enemy: Sprite2D) -> void:
 	add_child(enemy)
 	if enemy is Boss:
 		enemy.position.x = 128
+		timer.start(2)
+		await timer.timeout
+		Globals.player_ready_to_attack = true
 	else:
 		enemy.position.x = 64 * (enemy.get_index() - 1)
+	enemiesAttack()
 
 func enemyDiedHandler(body: Enemy) -> void:
 	body.queue_free()
 	Globals.player_ready_to_attack = false
-	print_debug("Enemy died. Enemy: ", body)
 	if get_child_count() == 2:
 		startRound()
 	else:
@@ -70,13 +88,16 @@ func moveEnemies() -> void:
 			i.movePosition()
 		timer.start(1)
 		await timer.timeout
+	Globals.player_ready_to_attack = true
 	enemiesAttack()
 
 func enemiesAttack() -> void:
-	Globals.player_ready_to_attack = true
+	timer.start(0.5)
+	await timer.timeout
 	for i : Node in get_children():
 		if i is Enemy or i is Boss:
 			i.cooldown()
+
 	Globals.readyToAttack.emit()
 
 

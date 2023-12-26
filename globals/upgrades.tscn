@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgoldym24rogq"]
+[gd_scene load_steps=7 format=3 uid="uid://cgoldym24rogq"]
 
 [ext_resource type="Script" path="res://globals/upgrades.gd" id="1_ngljc"]
+[ext_resource type="FontFile" uid="uid://6uua2b2o5ncv" path="res://globals/PixeloidMono-d94EV.ttf" id="1_x1qox"]
 [ext_resource type="Script" path="res://globals/upgrade buttons/UpgradeButton.gd" id="2_tqisk"]
+[ext_resource type="AudioStream" uid="uid://d4ii7aoj2c4pq" path="res://Sounds/sfx/pickupCoin.wav" id="3_wdjco"]
+
+[sub_resource type="Theme" id="Theme_l25yr"]
+default_font = ExtResource("1_x1qox")
 
 [sub_resource type="Theme" id="Theme_3hyi8"]
 
@@ -11,8 +16,12 @@ anchor_right = 0.277778
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_l25yr")
 script = ExtResource("1_ngljc")
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wdjco")
 
 [node name="Panel" type="ColorRect" parent="."]
 layout_mode = 0
@@ -48,9 +57,9 @@ text = "Lifesteal
 "
 script = ExtResource("2_tqisk")
 increase = 0.2
-required_money = 100
+required_money = 51
 required_level = 3
-max_upgrade = 2
+max_upgrade = 1.4
 ui = NodePath("../../..")
 
 [node name="Crit" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -60,7 +69,8 @@ text = "Crit
 "
 script = ExtResource("2_tqisk")
 increase = 0.04
-max_upgrade = 100
+required_money = 100
+max_upgrade = 1.0
 ui = NodePath("../../..")
 
 [node name="Support" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -68,9 +78,9 @@ layout_mode = 2
 text = "Support
 "
 script = ExtResource("2_tqisk")
-required_money = 1
-required_level = 0
-max_upgrade = 2
+required_money = 500
+required_level = 3
+max_upgrade = 2.0
 ui = NodePath("../../..")
 
 [node name="Aspd" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -79,10 +89,10 @@ disabled = true
 text = "Aspd
 "
 script = ExtResource("2_tqisk")
-increase = -0.2
+increase = 0.3
 required_money = 1000
 required_level = 5
-max_upgrade = 2
+max_upgrade = 2.0
 ui = NodePath("../../..")
 
 [node name="Heal" type="Button" parent="BoxContainer/Upgrades" node_paths=PackedStringArray("ui")]
@@ -94,7 +104,7 @@ script = ExtResource("2_tqisk")
 increase = 0.2
 required_money = 1000
 required_level = 10
-max_upgrade = 2
+max_upgrade = 2.0
 ui = NodePath("../../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/Upgrades"]

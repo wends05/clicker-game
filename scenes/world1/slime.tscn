@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbvjenrmjt05k"]
+[gd_scene load_steps=39 format=3 uid="uid://cbvjenrmjt05k"]
 
 [ext_resource type="Script" path="res://globals/enemy.gd" id="1_edbge"]
 [ext_resource type="Texture2D" uid="uid://dp0bgsl65bajp" path="res://src/sprites/characters/slime.png" id="1_ng3dw"]
+[ext_resource type="FontFile" uid="uid://6uua2b2o5ncv" path="res://globals/PixeloidMono-d94EV.ttf" id="3_0rbt7"]
 
 [sub_resource type="Animation" id="Animation_v1tfv"]
 length = 0.001
@@ -391,13 +392,30 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7teag"]
-bg_color = Color(0, 0, 0, 0.901961)
+bg_color = Color(0.333333, 0, 0, 0.513726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.392157, 0.392157, 0.392157, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gh16"]
+bg_color = Color(0.619608, 0.0431373, 0, 0.301961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Slime" type="Sprite2D"]
 script = ExtResource("1_edbge")
@@ -419,6 +437,9 @@ offset_left = -64.0
 offset_top = -72.0
 offset_right = 64.0
 offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("3_0rbt7")
 theme_override_styles/background = SubResource("StyleBoxFlat_7teag")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7gh16")
+value = 50.0
 
 [node name="Timer" type="Timer" parent="."]
