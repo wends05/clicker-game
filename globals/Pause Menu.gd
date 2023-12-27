@@ -4,9 +4,12 @@ extends Control
 @onready var black : ColorRect = $Panel
 @onready var autosave : CheckBox = $VBoxContainer/Autosave
 
+@onready var resetbox : ConfirmationDialog = $"../Confirmation Boxes/Confirm Reset"
+@onready var diedbox : ConfirmationDialog = $"../Confirmation Boxes/Player Died Box"
 func _ready() -> void:
 	print(Globals.autosave)
 	autosave.button_pressed = Globals.autosave
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -31,7 +34,7 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_reset_pressed() -> void:
-	$ConfirmationDialog.visible = true
+	visible = true
 
 func _on_confirmation_dialog_2_confirmed() -> void:
 	togglePause()
