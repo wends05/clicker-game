@@ -9,14 +9,16 @@ extends Control
 func _ready() -> void:
 	print(Globals.autosave)
 	autosave.button_pressed = Globals.autosave
+	Globals.playerDied.connect(playerDied)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		togglePause()
+func playerDied():
+	diedbox.visible = true
 
 func togglePause() -> void:
-
 	get_tree().paused = get_tree().paused
 	visible = not visible
 	sound_system.stream_paused = not sound_system.stream_paused
@@ -34,7 +36,7 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_reset_pressed() -> void:
-	visible = true
+	resetbox.visible = true
 
 func _on_confirmation_dialog_2_confirmed() -> void:
 	togglePause()
